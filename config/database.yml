@@ -1,0 +1,29 @@
+default: &default
+  adapter: mysql2
+  reconnect: true
+  encoding: utf8mb4
+  pool: <%= ENV["MYSQL_POOL"] %>
+  host: <%= ENV["DATABASE_HOSTNAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  port: 3306
+
+development:
+  <<: *default
+  database: my_blog
+
+test:
+  <<: *default
+  database: my_blog_test
+
+staging:
+  <<: *default
+  database: my_blog_staging
+  username: khacthe
+  password: <%= ENV['STG_DATABASE_PASSWORD'] %>
+
+production:
+  <<: *default
+  database: my_blog_production
+  username: khacthe
+  password: <%= ENV['PD_DATABASE_PASSWORD'] %>
