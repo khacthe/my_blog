@@ -1,7 +1,10 @@
+require_relative "../support/files_test_helper"
+
 FactoryBot.define do
   factory :category do
     name{Faker::Name.name}
-    email{Faker::Internet.email}
-    password{"abcA123123"}
+    description{Faker::Lorem.paragraph_by_chars(256, false)}
+
+    image{FilesTestHelper.jpg}
   end
 end
