@@ -1,14 +1,32 @@
-import React from 'react';
+import React,  { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 
 import HomeView from '../../components/Home';
+import { selectHome } from '../../selectors';
+import {
+  getPosts,
+  getPostsSuccess,
+} from '../../actions/homeAction';
+
 
 const HomePage = styled.div``;
 
-const Home = () =>(
-  <HomePage>
-    <HomeView />
-  </HomePage>
-);
+const Home = (props) => {
+  useEffect(() => {
+    const { getPostsAction } = props;
+    getPostsAction();
+  }, [])
+  return(
+    <HomePage>
+      <HomeView posts={props.posts} />
+    </HomePage>
+  )
+}
 
-export default Home;
+export default connect(
+  selectHome,
+  {
+    getPostsAction: getPosts,
+  }
+)(Home);
