@@ -1,13 +1,29 @@
 import React from 'react';
-
 import styled from 'styled-components';
+
+import Post from './Post';
 
 const Wrapper = styled.div``;
 const Title = styled.h3``;
+const Posts = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+`;
 
-const Home = () =>(
+const Home = ({posts}) => (
   <Wrapper>
-    <Title>This is home page </Title>
+    <Posts>
+      {posts &&
+        posts.map(post => (
+          <Post
+            key={post.id}
+            post={post}
+          />
+        ))
+      }
+    </Posts>
   </Wrapper>
 );
 
