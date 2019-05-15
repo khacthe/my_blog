@@ -9,14 +9,13 @@ import store from '../store';
 import { MainLayout, LayoutRoute } from '../components/Layouts';
 import history from '../utils/history';
 import Home from '../containers/Home';
+import '../styles/styles.scss';
 
 const Wrapper = styled.div``;
 
 const BlogApp = () =>(
   <Provider store={store}>
     <Router>
-  
-      
       <Switch>
         <LayoutRoute
           exact
