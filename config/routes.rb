@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root "user#index"
 
-  get "admin/*other", to: "admin#index"
+  namespace :admin do
+    resources :users
+  end
 
   mount API => "/"
 end

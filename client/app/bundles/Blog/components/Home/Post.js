@@ -4,24 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 import { excerptBody } from '../../utils/main';
 
-const PostItem = styled.li`
-  list-style: none;
-  box-sizing: border-box;
-  padding: 1rem;
-
-  @media only screen and (max-width: 911px) {
-    flex-basis: 33.33%;
-  }
-
-  @media only screen and (max-width: 767px) {
-    flex-basis: 50%;
-  }
-
-  @media only screen and (max-width: 560px) {
-    flex-basis: 100%;
-  }
-`;
-
 const Title = styled(NavLink)`
   color: #000;
   font-weight: bold;
@@ -34,17 +16,22 @@ const Title = styled(NavLink)`
   }
 `;
 
-const Thumbnail  = styled.img`
-  width: 100%;
-`;
-
 const Description = styled.p``;
 
 const Post = ({ post } = props) => (
-  <PostItem>
-    <Title to={`/post/${post.id}`}>{post.title}</Title>
-    <Description>{excerptBody(post.body, 40)}</Description>
-  </PostItem>
+  <div className="item mb-5">
+      <div className="media">
+          <img className="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://themes.3rdwavemedia.com/demo/devblog/assets/images/blog/blog-post-thumb-1.jpg" alt="image" />
+          <div className="media-body">
+              <h3 className="title mb-1"><Title to={`/post/${post.id}`}>{post.title}</Title></h3>
+              <div className="meta mb-1"><span className="date">Published 2 days ago</span><span className="time">5 min read</span><span className="comment"><a href="#">8 comments</a></span></div>
+              <div className="intro">
+                <Description>{excerptBody(post.body, 40)}</Description>
+              </div>
+              <a className="more-link" href="blog-post.html">Read more &rarr;</a>
+          </div>
+      </div>
+  </div>
 )
 
 export default Post;

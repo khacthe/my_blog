@@ -12,17 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const LeftBody = styled.div`
-  flex-basis: 50%;
-  padding: 60px;
-`;
-
-const RightBody = styled.div`
-  flex-basis: 50%;
-  background-image: url('https://blog.stayuncle.com/wp-content/themes/inframe/assets/images/no-thumbnail-medium.png');
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+  flex-basis: 100%;
 `;
 
 const TitleFeature = styled(NavLink)`
@@ -69,9 +59,6 @@ const Home = ({posts}) => (
         </>
       )}
     </LeftBody>
-    <RightBody>
-    </RightBody>
-
   </Wrapper>
 );
 

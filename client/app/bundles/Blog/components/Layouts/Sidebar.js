@@ -11,135 +11,54 @@ import {
   faVimeo,
 } from "@fortawesome/free-brands-svg-icons";
 
-const HiddenSidebar = css`
-  transition: left 0.3s ease;
-  left: -320px;
-`;
-
-const SidebarMenu = styled.div`
-  position: fixed;
-  background-color: #2D2D2D;
-  height: 100%;
-  width: 420px;
-  transition: left 0.3s ease;
-  z-index: 2;
-  display: flex;
-
-  left: ${props => props.openSidebar && '0px' || '-320px'}
-`;
-
-const LeftSidebar = styled.div`
-  width: 20rem;
-  background-color: #333333;
-  padding-left: 3.125rem;
-  padding-top: 1rem;
-  box-sizing: border-box;
-`;
-
-const RightSidebar = styled.div`
-  width: 6.25rem;
-`;
-
-const Info = styled.div`
-`;
-
-const InfoTitle = styled.h4`
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 1rem;
-`;
-
-const InfoDescription = styled.p`
-  color: #848484;
-  line-height: 1.25rem;
-`;
-
-const MenuList = styled.ul`
-  margin-top: 2.5rem;
-  color: #fff;
-  padding: 0;
-`;
-
-const Menu = styled.li`
-  list-style: none;
-`;
-
-const MenuLink = styled(NavLink)`
-  color: #fff;
-  display: block;
-  padding: 0.6rem 0;
-  text-decoration: none;
-  font-size: @include font-size(20);
-
-  &:hover {
-    color: #0095ab;
-  }
-
-  &.active {
-    color: #0095ab;
-  }
-`;
-
-const Social = styled.div`
-`;
-
-const SocialIcon = styled(FontAwesomeIcon)`
-`;
-
-const SocialItemActive = css`
-  background-color: #0095ab !important;
-  color: #fff !important;
-`;
-
-const SocialItem = styled.div`
-  position: relative;
-  text-align: center;
-  color: #5b5b5b;
-  font-size: 2rem;
-  cursor: pointer;
-  line-height: 6.25rem;
-
-  &:hover {
-    background-color: #333333;
-  }
-
-  ${props => props.active && SocialItemActive}
+const SidebarMenu = styled.header`
 `;
 
 const Sidebar = ({ openSidebar, togleSidebar, children }) => {
   return(
-    <SidebarMenu openSidebar={openSidebar}>
-      <LeftSidebar>
-        <Info>
-          <InfoTitle>Suppablog</InfoTitle>
-          <InfoDescription>Suppablog is simple and yet cool wordpress theme to lorem ipsum dolor sit.</InfoDescription>
-        </Info>
-        <MenuList>
-          <Menu>
-            <MenuLink to="/" activeClassName="active">Home</MenuLink>
-          </Menu>
-          <Menu>
-            <MenuLink to="/about" activeClassName="active">About</MenuLink>
-          </Menu>
-          <Menu>
-            <MenuLink to="/contact" activeClassName="active">Contact</MenuLink>
-          </Menu>
-          <Menu>
-            <MenuLink to="/design" activeClassName="active">Design</MenuLink>
-          </Menu>
-        </MenuList>
-      </LeftSidebar>
-      <RightSidebar>
-        <SocialItem active onClick={() => togleSidebar()} >
-          { <SocialIcon icon={openSidebar && faTimes || faAlignJustify} /> }
-        </SocialItem>
-        <SocialItem><SocialIcon icon={faTwitter} /></SocialItem>
-        <SocialItem><SocialIcon icon={faYoutube} /></SocialItem>
-        <SocialItem><SocialIcon icon={faVimeo} /></SocialItem>
-      </RightSidebar>
-    </SidebarMenu>
+      <header className="header text-center">
+       <h1 className="blog-name pt-lg-4 mb-0"><a href="index.html">Anthony's Blog</a></h1>
+
+       <nav className="navbar navbar-expand-lg navbar-dark">
+
+           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+               <span className="navbar-toggler-icon"></span>
+           </button>
+
+           <div id="navigation" className="collapse navbar-collapse flex-column">
+               <div className="profile-section pt-3 pt-lg-0">
+                   <img className="profile-image mb-3 rounded-circle mx-auto" src="https://themes.3rdwavemedia.com/demo/devblog/assets/images/profile.png" alt="image" />
+                   <div className="bio mb-3">
+                     Hi, my name is Anthony Doe. Briefly introduce yourself here. You can also provide a link to the about page.
+                    <br/><a href="about.html">Find out more about me</a>
+                    </div>
+                   <ul className="social-list list-inline py-3 mx-auto">
+                       <li className="list-inline-item"><a href="#"><i className="fab fa-twitter fa-fw"></i></a></li>
+                       <li className="list-inline-item"><a href="#"><i className="fab fa-linkedin-in fa-fw"></i></a></li>
+                       <li className="list-inline-item"><a href="#"><i className="fab fa-github-alt fa-fw"></i></a></li>
+                       <li className="list-inline-item"><a href="#"><i className="fab fa-stack-overflow fa-fw"></i></a></li>
+                       <li className="list-inline-item"><a href="#"><i className="fab fa-codepen fa-fw"></i></a></li>
+                   </ul>
+                   <hr/>
+               </div>
+
+               <ul className="navbar-nav flex-column text-left">
+                   <li className="nav-item active">
+                       <a className="nav-link" href="index.html"><i className="fas fa-home fa-fw mr-2"></i>Blog Home <span className="sr-only">(current)</span></a>
+                   </li>
+                   <li className="nav-item">
+                       <a className="nav-link" href="blog-post.html"><i className="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
+                   </li>
+                   <li className="nav-item">
+                       <a className="nav-link" href="about.html"><i className="fas fa-user fa-fw mr-2"></i>About Me</a>
+                   </li>
+               </ul>
+               <div className="my-2 my-md-3">
+                  <a className="btn btn-primary" href="#" target="_blank">Get in Touch</a>
+               </div>
+           </div>
+       </nav>
+   </header>
   )
 }
 

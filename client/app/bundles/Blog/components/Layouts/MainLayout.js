@@ -25,10 +25,24 @@ const MainLayout = ({children}) => {
 
   return(
     <Main>
-      <Sidebar togleSidebar={togleSidebar} openSidebar={openSidebar} />
-      <Body openSidebar={openSidebar}>
-        {children}
-      </Body>
+      <Sidebar />
+        <div className="main-wrapper">
+            <section className="cta-section theme-bg-light py-5">
+                <div className="container text-center">
+                    <h2 className="heading">DevBlog For Developers</h2>
+                    <div className="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
+                </div>
+            </section>
+            <section className="blog-list px-3 py-5 p-md-5">
+                <div className="container">
+                  {children}
+                </div>
+            </section>
+
+            <footer className="footer text-center py-2 theme-bg-dark">
+                <small className="copyright">Designed with <i className="fas fa-heart"></i> by <a href="#" target="_blank">Xiaoying Riley</a> for developers</small>
+            </footer>
+          </div>
     </Main>
   )
 }
