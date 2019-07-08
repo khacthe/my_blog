@@ -9,6 +9,7 @@ import store from '../store';
 import { MainLayout, LayoutRoute } from '../components/Layouts';
 import history from '../utils/history';
 import Home from '../containers/Home';
+import PostDetail from '../containers/PostDetail';
 import '../styles/styles.scss';
 
 const Wrapper = styled.div``;
@@ -22,6 +23,12 @@ const BlogApp = () =>(
           path="/"
           layout={MainLayout}
           component={Home}
+        />
+        <LayoutRoute
+          exact
+          path="/posts/:id"
+          layout={MainLayout}
+          component={PostDetail}
         />
       </Switch>
     </Router>

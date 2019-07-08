@@ -27,7 +27,7 @@ const Sidebar = ({ openSidebar, togleSidebar, children }) => {
 
            <div id="navigation" className="collapse navbar-collapse flex-column">
                <div className="profile-section pt-3 pt-lg-0">
-                   <img className="profile-image mb-3 rounded-circle mx-auto" src="https://themes.3rdwavemedia.com/demo/devblog/assets/images/profile.png" alt="image" />
+                   <img className="profile-image mb-3 rounded-circle mx-auto" src="http://pngimages.net/sites/default/files/male-user-png-image-20772.png" alt="image" />
                    <div className="bio mb-3">
                      Hi, my name is Anthony Doe. Briefly introduce yourself here. You can also provide a link to the about page.
                     <br/><a href="about.html">Find out more about me</a>

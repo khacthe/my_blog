@@ -7,18 +7,18 @@ export const {
   getPostsError,
   getPostsLoading,
 
-  getPost,
-  getPostSuccess,
-  getPostError,
-  getPostLoading,
+  getPostDetail,
+  getPostDetailSuccess,
+  getPostDetailError,
+  getPostDetailLoading,
 } = createActions({
   [ActionsTypes.GET_POSTS]: payload => payload,
   [ActionsTypes.GET_POSTS_SUCCESS]: payload => payload,
   [ActionsTypes.GET_POSTS_ERROR]: payload => payload,
   [ActionsTypes.GET_POSTS_LOADING]: payload => payload,
 
-  [ActionsTypes.GET_POST]: payload => payload,
-  [ActionsTypes.GET_POST_SUCCESS]: payload => payload,
-  [ActionsTypes.GET_POST_ERROR]: payload => payload,
-  [ActionsTypes.GET_POST_LOADING]: payload => payload,
+  [ActionsTypes.GET_POST_DETAIL]: payload => payload,
+  [ActionsTypes.GET_POST_DETAIL_SUCCESS]: payload => payload,
+  [ActionsTypes.GET_POST_DETAIL_ERROR]: payload => payload,
+  [ActionsTypes.GET_POST_DETAIL_LOADING]: payload => payload,
 });

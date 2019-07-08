@@ -6,8 +6,8 @@ export const ActionsTypes = keyMirror({
   GET_POSTS_ERROR: undefined,
   GET_POSTS_LOADING: undefined,
 
-  GET_POST: undefined,
-  GET_POST_SUCCESS: undefined,
-  GET_POST_ERROR: undefined,
-  GET_POST_LOADING: undefined,
+  GET_POST_DETAIL: undefined,
+  GET_POST_DETAIL_SUCCESS: undefined,
+  GET_POST_DETAIL_ERROR: undefined,
+  GET_POST_DETAIL_LOADING: undefined,
 });

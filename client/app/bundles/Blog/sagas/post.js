@@ -5,18 +5,22 @@ import {
   getPostsLoading,
   getPostsSuccess,
   getPostsError,
+
+  getPostDetail,
+  getPostDetailError,
+  getPostDetailLoading,
+  getPostDetailSuccess,
 } from '../actions/homeAction';
 import { PostApi } from '../services/restClient/post';
-// import getDataRequest from '../utils/dataRquest';
+import { getDataRequest } from '../utils/dataRequest';
 
 export function* getPostsSaga({ payload }) {
-  // const dataRquest = getDataRequest(payload);
+  const dataRquest = getDataRequest(payload);
 
   try {
     yield put(getPostsLoading({ isLoadingGetPostsList: true }));
-    const { data } = yield call([PostApi, PostApi.getPosts]);
+    const { data } = yield call([PostApi, PostApi.getPosts], dataRquest);
     yield put(getPostsSuccess({data}));
-
   } catch (error) {
     yield put(getPostsError({ error: error.error_code }));
   } finally {
@@ -24,9 +28,21 @@ export function* getPostsSaga({ payload }) {
   }
 }
 
+export function* getPostDetailSaga({payload}) {
+  try {
+    yield put(getPostDetailLoading({isLoadingGetPostDetail: true}));
+    const { data } = yield call([PostApi, PostApi.getPostDetail], payload);
+    yield put(getPostDetailSuccess({data}));
+  } catch (error) {
+    yield put(getPostDetailError({ error: error.error_code }));
+  } finally {
+    yield put(getPostDetailLoading({isLoadingGetPostDetail: false}));
+  }
+}
+
 export default function* root() {
   yield all([
     takeLatest(getPosts, getPostsSaga),
+    takeLatest(getPostDetail, getPostDetailSaga),
   ]);
 }
-

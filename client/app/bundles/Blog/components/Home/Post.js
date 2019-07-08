@@ -16,6 +16,8 @@ const Title = styled(NavLink)`
   }
 `;
 
+const ReadMore = styled(NavLink)``;
+
 const Description = styled.p``;
 
 const Post = ({ post } = props) => (
@@ -28,7 +30,7 @@ const Post = ({ post } = props) => (
               <div className="intro">
                 <Description>{excerptBody(post.body, 40)}</Description>
               </div>
-              <a className="more-link" href="blog-post.html">Read more &rarr;</a>
+              <NavLink className="more-link" to={`/post/${post.id}`}>Read more &rarr;</NavLink>
           </div>
       </div>
   </div>

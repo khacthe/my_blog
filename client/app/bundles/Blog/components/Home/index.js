@@ -45,7 +45,7 @@ const Home = ({posts}) => (
           <TitleFeature
             to={`/post/${posts[0].id}`}
           >{posts[0].title}</TitleFeature>
-          <DescriptionFeature>{excerptBody(posts[0].body, 300)}</DescriptionFeature>
+        <DescriptionFeature>{excerptBody(posts[0].body, 500)}</DescriptionFeature>
           <Posts>
             {posts &&
               posts.map(post => (

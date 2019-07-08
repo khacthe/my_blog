@@ -1,20 +1,19 @@
 import { combineActions, handleActions } from 'redux-actions';
 
 import {
-  getPost,
-  getPostSuccess,
-  getPostError,
+  getPostDetailSuccess,
+  getPostDetailError,
 } from '../actions/homeAction';
 
 export const initialState = {
-  getPostLoading: false,
+  isGetPostDetailLoading: false,
   error: '',
 };
 
 const reducer = handleActions({
   [combineActions(
-    getPostSuccess,
-    getPostError
+    getPostDetailSuccess,
+    getPostDetailError
   )]: (state, action) => ({
     ...state, ...action.payload,
   }),

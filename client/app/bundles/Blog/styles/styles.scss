@@ -86,7 +86,7 @@ h6 {
 	top: 0;
 	height: 100vh;
 	width: 280px;
-	background: #5FCB71;
+	background: #2e3083;
 	color: $color_3;
 	.blog-name {
 		font-weight: bold;
@@ -152,6 +152,8 @@ h6 {
 .profile-section {
 	.profile-image {
 		max-width: 160px;
+    border: solid 2px white;
+    padding: 5px;
 	}
 	.bio {
 		font-size: 0.875rem;

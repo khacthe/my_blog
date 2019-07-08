@@ -5,21 +5,24 @@ import {connect} from 'react-redux';
 import PostDetailView from '../../components/PostDetail';
 import { selectPostDetail } from '../../selectors';
 import {
-  getPost,
-  getPostsuccess,
+  getPostDetail,
+  getPostDetailSuccess,
 } from '../../actions/homeAction';
 
 
 const HomePage = styled.div``;
-
 const PostDetail = (props) => {
   useEffect(() => {
-    const { getPostAction } = props;
-    getPostAction();
+    const { match, getPostDetailAction } = props;
+    getPostDetailAction(match.params.id);
   }, [])
+
+  const { post } = props;
   return(
     <HomePage>
-      <PostDetailView post={props.post} />
+      {post &&
+        <PostDetailView post={post} />
+      }
     </HomePage>
   )
 }
@@ -27,6 +30,6 @@ const PostDetail = (props) => {
 export default connect(
   selectPostDetail,
   {
-    getPostAction: getPost,
+    getPostDetailAction: getPostDetail,
   }
 )(PostDetail);
