@@ -11,7 +11,7 @@ gem "webpacker"
 gem "turbolinks", "~> 5"
 gem "redis", "~> 4.0"
 gem "bcrypt", "~> 3.1.7"
-gem "mini_magick", "~> 4.8"
+gem "mini_magick", "~> 4.9"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "devise"
 gem "grape"
